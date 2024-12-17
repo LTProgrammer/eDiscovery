@@ -1,12 +1,13 @@
 import requests
 
 # PACER Authentication API URL
-#auth_url = "https://pacer.login.uscourts.gov/services/cso-auth"
+# use auth_url_production if you are using the actual PACER production envirionment
+#auth_url_production = "https://pacer.login.uscourts.gov/services/cso-auth"
 auth_url = "https://qa-login.uscourts.gov/services/cso-auth"
 
 # Replace with your PACER credentials
-username = "Chen2010"
-password = "Windycity#1818"
+username = "enter your PACER username here"
+password = "enter your PACER password here"
 client_code = "optionalclientcode"  # Leave empty if not applicable
 redact_flag = "1"  # Required for registered filers
 
