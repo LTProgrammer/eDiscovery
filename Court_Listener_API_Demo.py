@@ -1,13 +1,12 @@
 import requests
 
-def search_case(api_token, case_name, jurisdiction):
+def search_case(api_token, case_name):
     """
     Search for a case using the CourtListener API and print details for cases matching the exact name.
 
     Parameters:
         api_token (str): API token for authentication.
         case_name (str): The name of the case to search for.
-        jurisdiction (str): The jurisdiction to filter the search.
     """
     # API endpoint
     url = "https://www.courtlistener.com/api/rest/v4/search/"
@@ -15,7 +14,6 @@ def search_case(api_token, case_name, jurisdiction):
     # Query parameters
     params = {
         "q": f'"{case_name}"',  # Search query with exact phrase match
-        "jurisdiction": jurisdiction,  # Restrict search to jurisdiction
     }
 
     # Headers with authorization token
@@ -63,16 +61,15 @@ def search_case(api_token, case_name, jurisdiction):
         if not found_match:
             print("No cases found with the exact name provided.")
     else:
-        print("\nNo cases found for the given name and jurisdiction.")
+        print("\nNo cases found for the given name.")
 
 # Main function
 if __name__ == "__main__":
     # Prompt the user for API token
     api_token = input("Enter your API token: ").strip()
 
-    # Prompt the user for case name and jurisdiction
+    # Prompt the user for case name
     case_name = input("Enter the exact name of the case: ").strip()
-    jurisdiction = input("Enter the jurisdiction (e.g., 'scotus', 'cal', 'fla', etc.): ").strip()
 
     # Call the function to search for the case
-    search_case(api_token, case_name, jurisdiction)
+    search_case(api_token, case_name)
